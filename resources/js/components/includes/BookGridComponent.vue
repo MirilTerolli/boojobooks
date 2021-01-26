@@ -10,10 +10,10 @@
                 <p class="mt-1 break-words" v-html="book.snipped"/>
             </div>
         </div>
-        <div class="h-1/4 flex justify-content-end">
+        <div class="h-1/4 flex justify-around">
             <div :disable="updatingCollection"
                  @click="viewBook(book)"
-                 class="flex justify-content-center w-full cursor-pointer hover:text-indigo-700">
+                 class="flex justify-around w-full cursor-pointer hover:text-indigo-700">
                 <div class="p-3 rounded-br-lg">
                     <svg class="h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
