@@ -56,15 +56,15 @@ export default {
 
     props: {
         collectedBooks: {
-            required: false
+            required: true
         }
     },
 
     mounted() {
-        axios.get('/sanctum/csrf-cookie').then(response => {
-            console.log('token csrf');
-        });
-        // this.selectedBooks = this.collectedBooks;
+        // axios.get('/sanctum/csrf-cookie').then(response => {
+        //     console.log('token csrf');
+        // });
+        this.selectedBooks = this.collectedBooks;
     },
 
     data() {
