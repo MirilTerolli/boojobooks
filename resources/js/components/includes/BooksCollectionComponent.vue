@@ -1,8 +1,5 @@
 <template>
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
-        <div class="card-header">
-            <h3 class="text-indigo-700 upper ">My Collection</h3>
-        </div>
         <div class="card card-body">
             <ul v-if="list.length > 0" class="divide-y divide-gray-200">
                 <vuedraggable

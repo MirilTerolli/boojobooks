@@ -1,7 +1,7 @@
 <template>
     <div class="container min-h-screen">
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="card-header bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+        <div class="card-header bg-white py-5 px-1">
             <search-input-component placeholder="Please search for a book" @search="search"/>
             <p class="mt-1 text-sm text-gray-500">
                 Search for any book in Google API.
@@ -56,15 +56,15 @@ export default {
 
     props: {
         collectedBooks: {
-            required: false
+            required: true
         }
     },
 
     mounted() {
-        axios.get('/sanctum/csrf-cookie').then(response => {
-            console.log('token csrf');
-        });
-        // this.selectedBooks = this.collectedBooks;
+        // axios.get('/sanctum/csrf-cookie').then(response => {
+        //     console.log('token csrf');
+        // });
+        this.selectedBooks = this.collectedBooks;
     },
 
     data() {

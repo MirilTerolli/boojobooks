@@ -3855,13 +3855,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     collectedBooks: {
-      required: false
+      required: true
     }
   },
   mounted: function mounted() {
-    axios.get('/sanctum/csrf-cookie').then(function (response) {
-      console.log('token csrf');
-    }); // this.selectedBooks = this.collectedBooks;
+    // axios.get('/sanctum/csrf-cookie').then(response => {
+    //     console.log('token csrf');
+    // });
+    this.selectedBooks = this.collectedBooks;
   },
   data: function data() {
     return {
@@ -4062,9 +4063,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
 //
 //
 //
@@ -4489,14 +4487,13 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-var token = document.head.querySelector('meta[name="csrf-token"]');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // let token = document.head.querySelector('meta[name="csrf-token"]');
+// if(token) {
+//     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+// } else {
+//     console.error('CSRF TOKEN NOT FOUND.');
+// }
 
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF TOKEN NOT FOUND.');
-}
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -47937,10 +47934,7 @@ var render = function() {
     [
       _c(
         "div",
-        {
-          staticClass:
-            "card-header bg-white px-4 py-5 border-b border-gray-200 sm:px-6"
-        },
+        { staticClass: "card-header bg-white py-5 px-1" },
         [
           _c("search-input-component", {
             attrs: { placeholder: "Please search for a book" },
@@ -48084,7 +48078,8 @@ var render = function() {
     "li",
     {
       key: _vm.book.id,
-      staticClass: "col-span-2 bg-white rounded-lg shadow m-1"
+      staticClass:
+        "col-span-2 bg-white rounded-lg border shadow shadow-inner m-1"
     },
     [
       _c("div", { staticClass: "w-full flex p-6 h-3/4" }, [
@@ -48110,12 +48105,12 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "h-1/4 flex justify-content-end" }, [
+      _c("div", { staticClass: "h-1/4 flex justify-around border-t" }, [
         _c(
           "div",
           {
             staticClass:
-              "flex justify-content-center w-full cursor-pointer hover:text-indigo-700",
+              "flex justify-around w-full cursor-pointer hover:text-indigo-700",
             attrs: { disable: _vm.updatingCollection },
             on: {
               click: function($event) {
@@ -48285,8 +48280,6 @@ var render = function() {
     "div",
     { staticClass: "bg-white shadow overflow-hidden sm:rounded-md" },
     [
-      _vm._m(0),
-      _vm._v(" "),
       _c("div", { staticClass: "card card-body" }, [
         _vm.list.length > 0
           ? _c(
@@ -48533,22 +48526,12 @@ var render = function() {
               ],
               1
             )
-          : _c("ul", [_vm._m(1)])
+          : _c("ul", [_vm._m(0)])
       ])
     ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "text-indigo-700 upper " }, [
-        _vm._v("My Collection")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -1,5 +1,5 @@
 <template>
-    <li class="col-span-2 bg-white rounded-lg shadow m-1" :key="book.id">
+    <li class="col-span-2 bg-white rounded-lg border shadow shadow-inner m-1" :key="book.id">
         <div class="w-full flex p-6 h-3/4">
             <div class="mr-4 flex-shrink-0">
                 <img class="h-full w-100 border border-gray-300 bg-white text-gray-300"
@@ -10,10 +10,10 @@
                 <p class="mt-1 break-words" v-html="book.snipped"/>
             </div>
         </div>
-        <div class="h-1/4 flex justify-content-end">
+        <div class="h-1/4 flex justify-around border-t">
             <div :disable="updatingCollection"
                  @click="viewBook(book)"
-                 class="flex justify-content-center w-full cursor-pointer hover:text-indigo-700">
+                 class="flex justify-around w-full cursor-pointer hover:text-indigo-700">
                 <div class="p-3 rounded-br-lg">
                     <svg class="h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
