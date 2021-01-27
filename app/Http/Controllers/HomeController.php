@@ -16,7 +16,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Render the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -27,6 +27,11 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * Render the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function booksList()
     {
         return view('book-collection', [
