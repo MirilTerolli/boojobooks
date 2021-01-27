@@ -11,11 +11,12 @@ class HomeController extends Controller
      */
     private function getCollectedBooks() {
         $userBooksCollection = UserBooksCollection::where('user_id', auth()->user()->getAuthIdentifier())->first();
-        return !empty($userBooksCollection) ? $userBooksCollection->books_collection : [];
+
+        return !empty($userBooksCollection) ? $userBooksCollection->books_collection : json_encode([]);
     }
 
     /**
-     * Show the application dashboard.
+     * Render the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -26,6 +27,11 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * Render the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function booksList()
     {
         return view('book-collection', [

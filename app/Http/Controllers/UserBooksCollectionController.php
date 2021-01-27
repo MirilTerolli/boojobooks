@@ -8,32 +8,13 @@ use Illuminate\Http\Response;
 
 class UserBooksCollectionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function sync(Request $request)
     {
 
         $userBooksCollection = UserBooksCollection::where('user_id', auth()->user()->getAuthIdentifier())->first();
@@ -62,39 +43,5 @@ class UserBooksCollectionController extends Controller
     public function show(UserBooksCollection $userBooksCollection)
     {
         return response($userBooksCollection);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param UserBooksCollection $userBooksCollection
-     * @return Response
-     */
-    public function edit(UserBooksCollection $userBooksCollection)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param UserBooksCollection $userBooksCollection
-     * @return Response
-     */
-    public function update(Request $request, UserBooksCollection $userBooksCollection)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param UserBooksCollection $userBooksCollection
-     * @return Response
-     */
-    public function destroy(UserBooksCollection $userBooksCollection)
-    {
-        //
     }
 }

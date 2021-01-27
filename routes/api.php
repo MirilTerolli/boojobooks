@@ -19,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('search-book/{search}', [GoogleApiController::class, 'search'])->where('search', '(.*)');
     Route::get('user-book-collection/{user_id}', [UserBooksCollectionController::class, 'show']);
-    Route::post('user-book-collection', [UserBooksCollectionController::class, 'store']);
+    Route::post('user-book-collection', [UserBooksCollectionController::class, 'sync']);
 });
