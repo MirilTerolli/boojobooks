@@ -4,11 +4,12 @@
 namespace App\Collections;
 
 
-use App\Entities\Book;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Collection;
 
 class BookCollection extends Collection
 {
+    use HasFactory;
     /**
      * @return BookCollection
      */
