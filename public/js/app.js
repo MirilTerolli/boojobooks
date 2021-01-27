@@ -47934,10 +47934,7 @@ var render = function() {
     [
       _c(
         "div",
-        {
-          staticClass:
-            "card-header bg-white px-4 py-5 border-b border-gray-200 sm:px-6"
-        },
+        { staticClass: "card-header bg-white py-5 px-1" },
         [
           _c("search-input-component", {
             attrs: { placeholder: "Please search for a book" },
@@ -48081,7 +48078,8 @@ var render = function() {
     "li",
     {
       key: _vm.book.id,
-      staticClass: "col-span-2 bg-white rounded-lg shadow m-1"
+      staticClass:
+        "col-span-2 bg-white rounded-lg border shadow shadow-inner m-1"
     },
     [
       _c("div", { staticClass: "w-full flex p-6 h-3/4" }, [
@@ -48107,7 +48105,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "h-1/4 flex justify-around" }, [
+      _c("div", { staticClass: "h-1/4 flex justify-around border-t" }, [
         _c(
           "div",
           {

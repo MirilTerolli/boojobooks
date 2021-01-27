@@ -6,11 +6,13 @@ namespace App\Entities;
 
 class Book
 {
-    //propertiess
-    public function __construct()
-    {
-
-    }
-
-
+    private $id;
+    private $title;
+    private $snipped;
+    private $authors;
+    private $publishedDate;
+    private $smallThumbnail;
+    private $thumbnail;
+    private $selected;
+    private $position;
 }

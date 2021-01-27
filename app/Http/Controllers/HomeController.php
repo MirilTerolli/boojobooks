@@ -6,6 +6,13 @@ use App\Models\UserBooksCollection;
 
 class HomeController extends Controller
 {
+    /**
+     * @return array
+     */
+    private function getCollectedBooks() {
+        $userBooksCollection = UserBooksCollection::where('user_id', auth()->user()->getAuthIdentifier())->first();
+        return !empty($userBooksCollection) ? $userBooksCollection->books_collection : [];
+    }
 
     /**
      * Show the application dashboard.
@@ -24,10 +31,5 @@ class HomeController extends Controller
         return view('book-collection', [
             'collectedBooks' => $this->getCollectedBooks()
         ]);
-    }
-
-    private function getCollectedBooks() {
-        $userBooksCollection = UserBooksCollection::where('user_id', auth()->user()->getAuthIdentifier())->first();
-        return !empty($userBooksCollection) ? $userBooksCollection->books_collection : [];
     }
 }
