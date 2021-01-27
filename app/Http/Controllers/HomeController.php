@@ -11,7 +11,8 @@ class HomeController extends Controller
      */
     private function getCollectedBooks() {
         $userBooksCollection = UserBooksCollection::where('user_id', auth()->user()->getAuthIdentifier())->first();
-        return !empty($userBooksCollection) ? $userBooksCollection->books_collection : [];
+
+        return !empty($userBooksCollection) ? $userBooksCollection->books_collection : json_encode([]);
     }
 
     /**
